@@ -57,14 +57,14 @@
   font-family: 'Helvetica Neue';
   src: url('../fonts/helvetica-neue-medium-webfont.eot');
   src: local('☺'), url('../fonts/helvetica-neue-medium-webfont.woff') format('woff'), url('../fonts/helvetica-neue-medium-webfont.ttf') format('truetype'), url('../fonts/helvetica-neue-medium-webfont.svg') format('svg');
-  font-weight: normal;
+  font-weight: 500;
   font-style: normal;
 }
 @font-face {
   font-family: 'Helvetica Neue';
   src: url('../fonts/helvetica-neue-roman-webfont.eot');
   src: local('☺'), url('../fonts/helvetica-neue-roman-webfont.woff') format('woff'), url('../fonts/helvetica-neue-roman-webfont.ttf') format('truetype'), url('../fonts/helvetica-neue-roman-webfont.svg') format('svg');
-  font-weight: 500;
+  font-weight: normal;
   font-style: normal;
 }
 @font-face {
@@ -95,6 +95,7 @@ html {
 body {
   width: 100%;
   min-width: @min-width;
+  height: 100%;
   min-height: 100%;
   margin: 0 auto;
   background: @color-white;
@@ -179,6 +180,7 @@ h6 {&:extend(.h6); }
    ========================================================================== */
 .clearfix { display: table; content: '\0020'; clear: both; }
 .before { display: block; content: '\0020'; overflow: hidden; }
+.hidden { display: none;}
 /* Wrapper */
 .wrapper {
   width: 100%;
@@ -270,7 +272,7 @@ textarea {
   left: 0;
   top: 0;
   right: 0;
-  background: @color-brown;
+  z-index: 1000;
 
   @media @sm {
     height: 80px;
@@ -388,6 +390,89 @@ textarea {
           text-transform: uppercase;
         }
       }
+    }
+  }
+}
+/* ==========================================================================
+   _INDEX
+   ========================================================================== */
+.index {
+  padding-top: 60px;
+  padding-bottom: 20px;
+  height: 100%;
+  color: @color-white;
+  background: @color-brown url("../img/temp/figure.png") -90px 100% no-repeat;
+  background-size: 256px 232px;
+
+  @media @sm {
+    padding-top: 80px;
+    padding-bottom: 34px;
+    height: 426px;
+    background-position: 0 100%;
+  }
+
+  > .wrapper {
+    height: 100%;
+    display: table;
+
+    .space {
+      margin: 0;
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+
+  .quote {
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 0 20px;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 300;
+
+    .slogan {
+      margin-bottom: 26px;
+      text-align: center;
+    }
+
+    .author {
+      padding-right: 40px;
+      text-align: right;
+      position: relative;
+
+      &:before {
+        .before;
+        width: 38px;
+        height: 29px;
+        background: url("../img/temp/arrow.png") 0 0 no-repeat;
+        background-size: cover;
+        position: absolute;
+        right: -12px;
+        top: -3px;
+      }
+
+      cite { font-style: normal; }
+    }
+
+    @media @sm {
+      padding: 0;
+      font-size: 24px;
+      line-height: 28px;
+
+      .slogan { max-width: 410px; margin-bottom: 18px; }
+
+      .author {
+        padding-right: 85px;
+        font-size: 22px;
+
+        &:before { width: 62px; height: 48px; right: 12px; top: -28px;}
+      }
+    }
+
+    @media @md {
+      max-width: 660px;
+
+      .slogan { margin-left: auto; margin-right: auto; }
     }
   }
 }
