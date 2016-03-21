@@ -21,6 +21,7 @@
 @color-white: #fff;
 @color-font: #20201e;
 @color-orange: #f26f19;
+@color-gray: #dadada;
 @color-brown: #470e12;
 
 @margin-md: 18px;
@@ -159,6 +160,7 @@ audio, canvas, img, video { vertical-align: middle; }
   &:extend(.h-default);
   margin: @margin-md 0 @margin-md;
   font-size: 14px;
+  line-height: 18px;
   font-style: normal;
   text-transform: uppercase;
 }
@@ -485,7 +487,7 @@ textarea {
   }
 
   .heading {
-    margin: 0 0 46px;
+    margin: 0 0 44px;
     text-align: center;
   }
 
@@ -523,12 +525,12 @@ textarea {
 
       .title {
         &:extend(.h6);
-        margin: 0 0 20px;
+        margin: 0 0 18px;
       }
 
       @media @sm {
         width: 80%;
-        margin-bottom: 30px;
+        margin-bottom: 28px;
         padding: 10px 10px 10px 90px;
         float: left;
         clear: left;
@@ -563,13 +565,141 @@ textarea {
             height: 9px;
             display: block;
             cursor: pointer;
-            background: #dadada;
+            background: @color-gray;
             border-radius: 50%;
           }
 
           &.slick-active {
             .dots {
               background: @color-orange;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+/* ==========================================================================
+   _SERVICE
+   ========================================================================== */
+.service {
+  padding: 26px 0 130px;
+  color: @color-white;
+  background: @color-orange url("../img/temp/bg-1.jpg") 50% 100% no-repeat;
+  background-size: cover;
+  overflow: hidden;
+
+  @media @sm {
+    padding: 46px 0 206px;
+  }
+
+  @media @md {
+    padding-bottom: 236px;
+  }
+
+  .heading {
+    margin: 0 0 38px;
+    text-align: center;
+    color: @color-white;
+
+    @media @sm {
+      margin: 0 0 8px;
+    }
+
+    @media @md {
+      margin: 0 0 65px;
+    }
+  }
+
+  .list {
+    height: 260px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+
+    @media @sm {
+      height: auto;
+      margin: 0 -50px;
+      overflow: visible;
+    }
+
+    @media @md {
+      margin: 0;
+    }
+
+    &:after { .clearfix; }
+
+    li {
+      min-height: 100px;
+      padding: 0 15px;
+
+      .icon {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto 22px;
+        display: block;
+      }
+
+      .title {
+        &:extend(.h6);
+        margin: 0 0 18px;
+        color: @color-white;
+      }
+
+      p:last-of-type { margin-bottom: 0;}
+
+      @media @sm {
+        width: 50%;
+        margin-bottom: 30px;
+        padding: 0 50px;
+        float: left;
+
+        &:nth-child(2n+1) {clear: left;}
+        .icon { margin-left: 0; margin-right: 0;}
+      }
+
+      @media @md {
+        margin-bottom: 84px;
+        padding-left: 200px;
+        position: relative;
+
+        .icon {
+          margin: 0;
+          position: absolute;
+          left: 60px;
+          top: 16px;
+        }
+      }
+    }
+
+    &.slick-initialized {
+      height: auto;
+      overflow: visible;
+
+      .slick-dots {
+        margin: 14px 0;
+        padding: 0;
+        list-style: none;
+        text-align: center;
+
+        li {
+          min-height: 0;
+          padding: 0 6px;
+          display: inline-block;
+
+          .dots {
+            width: 9px;
+            height: 9px;
+            display: block;
+            cursor: pointer;
+            background: @color-gray;
+            border-radius: 50%;
+          }
+
+          &.slick-active {
+            .dots {
+              background: @color-white;
             }
           }
         }

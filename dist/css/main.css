@@ -96,7 +96,8 @@ h3,
 h4,
 h5,
 h6,
-.about .list li .title {
+.about .list li .title,
+.service .list li .title {
   margin: 0;
   line-height: normal;
   font-weight: bold;
@@ -134,9 +135,11 @@ h5 {
 }
 .h6,
 h6,
-.about .list li .title {
+.about .list li .title,
+.service .list li .title {
   margin: 18px 0 18px;
   font-size: 14px;
+  line-height: 18px;
   font-style: normal;
   text-transform: uppercase;
 }
@@ -521,7 +524,7 @@ input[type="submit"]:focus {
   }
 }
 .about .heading {
-  margin: 0 0 46px;
+  margin: 0 0 44px;
   text-align: center;
 }
 .about .list {
@@ -561,12 +564,12 @@ input[type="submit"]:focus {
   top: 0;
 }
 .about .list li .title {
-  margin: 0 0 20px;
+  margin: 0 0 18px;
 }
 @media (min-width: 750px) {
   .about .list li {
     width: 80%;
-    margin-bottom: 30px;
+    margin-bottom: 28px;
     padding: 10px 10px 10px 90px;
     float: left;
     clear: left;
@@ -612,4 +615,134 @@ input[type="submit"]:focus {
 }
 .about .list.slick-initialized .slick-dots li.slick-active .dots {
   background: #f26f19;
+}
+/* ==========================================================================
+   _SERVICE
+   ========================================================================== */
+.service {
+  padding: 26px 0 130px;
+  color: #fff;
+  background: #f26f19 url("../img/temp/bg-1.jpg") 50% 100% no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+@media (min-width: 750px) {
+  .service {
+    padding: 46px 0 206px;
+  }
+}
+@media (min-width: 970px) {
+  .service {
+    padding-bottom: 236px;
+  }
+}
+.service .heading {
+  margin: 0 0 38px;
+  text-align: center;
+  color: #fff;
+}
+@media (min-width: 750px) {
+  .service .heading {
+    margin: 0 0 8px;
+  }
+}
+@media (min-width: 970px) {
+  .service .heading {
+    margin: 0 0 65px;
+  }
+}
+.service .list {
+  height: 260px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+}
+@media (min-width: 750px) {
+  .service .list {
+    height: auto;
+    margin: 0 -50px;
+    overflow: visible;
+  }
+}
+@media (min-width: 970px) {
+  .service .list {
+    margin: 0;
+  }
+}
+.service .list:after {
+  display: table;
+  content: '\0020';
+  clear: both;
+}
+.service .list li {
+  min-height: 100px;
+  padding: 0 15px;
+}
+.service .list li .icon {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 22px;
+  display: block;
+}
+.service .list li .title {
+  margin: 0 0 18px;
+  color: #fff;
+}
+.service .list li p:last-of-type {
+  margin-bottom: 0;
+}
+@media (min-width: 750px) {
+  .service .list li {
+    width: 50%;
+    margin-bottom: 30px;
+    padding: 0 50px;
+    float: left;
+  }
+  .service .list li:nth-child(2n+1) {
+    clear: left;
+  }
+  .service .list li .icon {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+@media (min-width: 970px) {
+  .service .list li {
+    margin-bottom: 84px;
+    padding-left: 200px;
+    position: relative;
+  }
+  .service .list li .icon {
+    margin: 0;
+    position: absolute;
+    left: 60px;
+    top: 16px;
+  }
+}
+.service .list.slick-initialized {
+  height: auto;
+  overflow: visible;
+}
+.service .list.slick-initialized .slick-dots {
+  margin: 14px 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+.service .list.slick-initialized .slick-dots li {
+  min-height: 0;
+  padding: 0 6px;
+  display: inline-block;
+}
+.service .list.slick-initialized .slick-dots li .dots {
+  width: 9px;
+  height: 9px;
+  display: block;
+  cursor: pointer;
+  background: #dadada;
+  border-radius: 50%;
+}
+.service .list.slick-initialized .slick-dots li.slick-active .dots {
+  background: #fff;
 }
