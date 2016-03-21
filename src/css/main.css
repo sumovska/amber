@@ -95,7 +95,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.about .list li .title {
   margin: 0;
   line-height: normal;
   font-weight: bold;
@@ -132,13 +133,14 @@ h5 {
   font-style: normal;
 }
 .h6,
-h6 {
+h6,
+.about .list li .title {
   margin: 18px 0 18px;
   font-size: 14px;
   font-style: normal;
   text-transform: uppercase;
 }
-@media (min-width: 970px) {
+@media (min-width: 750px) {
   .h1,
   h1 {
     font-size: 40px;
@@ -422,9 +424,9 @@ input[type="submit"]:focus {
    _INDEX
    ========================================================================== */
 .index {
+  height: 426px;
   padding-top: 60px;
   padding-bottom: 20px;
-  height: 100%;
   color: #fff;
   background: #470e12 url("../img/temp/figure.png") -90px 100% no-repeat;
   background-size: 256px 232px;
@@ -433,7 +435,6 @@ input[type="submit"]:focus {
   .index {
     padding-top: 80px;
     padding-bottom: 34px;
-    height: 426px;
     background-position: 0 100%;
   }
 }
@@ -507,4 +508,108 @@ input[type="submit"]:focus {
     margin-left: auto;
     margin-right: auto;
   }
+}
+/* ==========================================================================
+   _ABOUT
+   ========================================================================== */
+.about {
+  padding: 26px 0;
+}
+@media (min-width: 750px) {
+  .about {
+    padding: 36px 0;
+  }
+}
+.about .heading {
+  margin: 0 0 46px;
+  text-align: center;
+}
+.about .list {
+  height: 124px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+}
+@media (min-width: 750px) {
+  .about .list {
+    height: auto;
+    overflow: visible;
+  }
+}
+@media (min-width: 970px) {
+  .about .list {
+    padding: 0 90px;
+  }
+}
+.about .list:after {
+  display: table;
+  content: '\0020';
+  clear: both;
+}
+.about .list li {
+  min-height: 75px;
+  padding-left: 108px;
+  position: relative;
+}
+.about .list li .icon {
+  width: 75px;
+  height: 75px;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.about .list li .title {
+  margin: 0 0 20px;
+}
+@media (min-width: 750px) {
+  .about .list li {
+    width: 80%;
+    margin-bottom: 30px;
+    padding: 10px 10px 10px 90px;
+    float: left;
+    clear: left;
+  }
+  .about .list li:nth-child(2n) {
+    width: 70%;
+    float: right;
+  }
+  .about .list li .icon {
+    top: 5px;
+  }
+}
+@media (min-width: 970px) {
+  .about .list li {
+    width: 65%;
+  }
+  .about .list li:nth-child(2n) {
+    width: 60%;
+  }
+}
+.about .list.slick-initialized {
+  height: auto;
+  overflow: visible;
+}
+.about .list.slick-initialized .slick-dots {
+  margin: 10px 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+.about .list.slick-initialized .slick-dots li {
+  min-height: 0;
+  padding: 0 6px;
+  display: inline-block;
+}
+.about .list.slick-initialized .slick-dots li .dots {
+  width: 9px;
+  height: 9px;
+  display: block;
+  cursor: pointer;
+  background: #dadada;
+  border-radius: 50%;
+}
+.about .list.slick-initialized .slick-dots li.slick-active .dots {
+  background: #f26f19;
 }

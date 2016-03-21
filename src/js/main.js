@@ -14,4 +14,25 @@ $(document).ready(function () {
 		$('.menu', this).prepend('<span class="toggle"></span>')
 	});
 
+	$('.about').each(function(){
+		$('.list', this).slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			mobileFirst: true,
+			adaptiveHeight: true,
+			infinite: false,
+			dots: true,
+			customPaging: function (slider, i) {
+				return '<span class="dots" data-role="none"></span>';
+			},
+			arrows: false,
+			responsive: [
+				{
+					breakpoint: 750,
+					settings: 'unslick'
+				}
+			]
+		});
+	});
+
 });
