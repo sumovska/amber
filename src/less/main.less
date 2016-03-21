@@ -7,21 +7,23 @@
 // _VARIABLES
 // ==========================================================================
 @min-width: 320px;
-@md-width: 970px;
-@lg-width: 1560px;
+@md-width: 730px;
+@lg-width: 1000px;
 
 @xs: ~"(min-width: 568px)";
 @sm: ~"(min-width: 750px)";
 @md: ~"(min-width: 970px)";
 @lg: ~"(min-width: 1280px)";
 
-@font-family: 'Raleway', Arial, sans-serif;
+@font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 @color-black: #000;
 @color-white: #fff;
+@color-font: #20201e;
+@color-orange: #f26f19;
+@color-brown: #470e12;
 
-@margin-sm: 14px;
-@margin-lg: 18px;
+@margin-md: 18px;
 
 @duration: .2s ease;
 @images: '../img';
@@ -43,7 +45,35 @@
 // ==========================================================================
 // _FONTS
 // ========================================================================== */
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,200,300,600,700);
+/* HELVETICA NEUE */
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('../fonts/helvetica-neue-light-webfont.eot');
+  src: local('☺'), url('../fonts/helvetica-neue-light-webfont.woff') format('woff'), url('../fonts/helvetica-neue-light-webfont.ttf') format('truetype'), url('../fonts/helvetica-neue-light-webfont.svg') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('../fonts/helvetica-neue-medium-webfont.eot');
+  src: local('☺'), url('../fonts/helvetica-neue-medium-webfont.woff') format('woff'), url('../fonts/helvetica-neue-medium-webfont.ttf') format('truetype'), url('../fonts/helvetica-neue-medium-webfont.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('../fonts/helvetica-neue-roman-webfont.eot');
+  src: local('☺'), url('../fonts/helvetica-neue-roman-webfont.woff') format('woff'), url('../fonts/helvetica-neue-roman-webfont.ttf') format('truetype'), url('../fonts/helvetica-neue-roman-webfont.svg') format('svg');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('../fonts/helvetica-neue-bold-webfont.eot');
+  src: local('☺'), url('../fonts/helvetica-neue-bold-webfont.woff') format('woff'), url('../fonts/helvetica-neue-bold-webfont.ttf') format('truetype'), url('../fonts/helvetica-neue-bold-webfont.svg') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
 /* ==========================================================================
    _GENERAL STYLES
    ========================================================================== */
@@ -56,16 +86,11 @@ html {
   height: 100%;
   padding: 0;
   margin: 0;
-  font: 10px/14px @font-family;
-  color: @color-black;
+  font: 14px/18px @font-family;
+  color: @color-font;
   background: @color-white;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  @media @sm {
-    font-size: 14px;
-    line-height: 18px;
-  }
 }
 body {
   width: 100%;
@@ -78,14 +103,14 @@ body {
    _TEXT STYLES
    ========================================================================== */
 p {
-  margin: 0 0 @margin-sm;
+  margin: 0 0 @margin-md;
 }
 :focus { outline: -webkit-focus-ring-color auto 0; }
 a {
-  color: @color-black;
+  color: @color-orange;
   outline: none;
-  text-decoration: none;
-  transition: color @duration, border-bottom-color @duration;
+  text-decoration: underline;
+  transition: color @duration;
 
   &:hover, &:focus {
     outline: none;
@@ -96,45 +121,52 @@ audio, canvas, img, video { vertical-align: middle; }
 .h-default {
   margin: 0;
   line-height: normal;
-  font-weight: 300;
-  color: @color-black;
-  text-transform: uppercase;
+  font-weight: bold;
+  color: @color-font;
 }
 .h1 {
   &:extend(.h-default);
-  margin: @margin-sm 0 @margin-sm;
-  font-size: 24px;
+  margin: @margin-md 0 @margin-md;
+  font-size: 30px;
   font-style: normal;
 }
 .h2 {
   &:extend(.h-default);
-  margin: @margin-sm 0 @margin-sm;
-  font-size: 21px;
+  margin: @margin-md 0 @margin-md;
+  font-size: 24px;
   font-style: normal;
 }
 .h3 {
   &:extend(.h-default);
-  margin: @margin-sm 0 @margin-sm;
-  font-size: 21px;
+  margin: @margin-md 0 @margin-md;
+  font-size: 24px;
   font-style: normal;
 }
 .h4 {
   &:extend(.h-default);
-  margin: @margin-sm 0 @margin-sm;
-  font-size: 14px;
+  margin: @margin-md 0 @margin-md;
+  font-size: 18px;
   font-style: normal;
 }
 .h5 {
   &:extend(.h-default);
-  margin: @margin-sm 0 @margin-sm;
-  font-size: 12px;
+  margin: @margin-md 0 @margin-md;
+  font-size: 16px;
   font-style: normal;
 }
 .h6 {
   &:extend(.h-default);
-  margin: @margin-sm 0 @margin-sm;
-  font-size: 16px;
+  margin: @margin-md 0 @margin-md;
+  font-size: 14px;
   font-style: normal;
+  text-transform: uppercase;
+}
+@media @md {
+  .h1 { font-size: 40px; }
+  .h2 { font-size: 36px; }
+  .h3 { font-size: 30px; }
+  .h4 { font-size: 24px; }
+  .h5 { font-size: 20px; }
 }
 h1 {&:extend(.h1); }
 h2 {&:extend(.h2); }
@@ -154,6 +186,10 @@ h6 {&:extend(.h6); }
   padding: 0 15px;
   margin: 0 auto;
   &:after { .clearfix; }
+
+  @media @md {
+    max-width: @lg-width;
+  }
 }
 /* PureCSS styles */
 .pure-g {
@@ -180,7 +216,7 @@ input {
   transition: background-color @duration, border-color @duration;
   -webkit-appearance: none;
 
-  &:focus {  }
+  &:focus { }
   .form-line & { width: 100%; }
 }
 textarea {
@@ -193,7 +229,7 @@ textarea {
     height: 170px;
   }
 
-  &:focus {  }
+  &:focus { }
   .form-line & { width: 100%; }
 }
 ::-webkit-input-placeholder { color: @color-black; }
@@ -228,3 +264,130 @@ textarea {
 /* ==========================================================================
    _HEADER
    ========================================================================== */
+.header {
+  height: 60px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  background: @color-brown;
+
+  @media @sm {
+    height: 80px;
+  }
+
+  > .wrapper {
+    height: 100%;
+    position: relative;
+  }
+
+  .logo {
+    margin: 0;
+    width: 116px;
+    height: 32px;
+    display: block;
+    position: absolute;
+    left: 15px;
+    top: 15px;
+
+    @media @sm {
+      width: 183px;
+      height: 50px;
+      top: 20px;
+    }
+
+    @media @md {
+      left: 28px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  }
+
+  .language {
+    padding: 15px;
+    font-size: 13px;
+    font-weight: 500;
+    display: block;
+    color: @color-white;
+    text-decoration: none;
+    position: absolute;
+    right: 0;
+    top: 6px;
+
+    @media @sm {
+      top: 20px;
+    }
+
+    @media @md {
+      right: 15px;
+    }
+  }
+
+  .menu {
+    display: none;
+
+    @media @sm {
+      display: block;
+      padding-left: 40px;
+      position: absolute;
+      left: 258px;
+      top: 35px;
+    }
+
+    @media @md {
+      left: 362px;
+    }
+
+    .toggle {
+      width: 14px;
+      height: 10px;
+      display: block;
+      border-top: 2px solid @color-white;
+      border-bottom: 2px solid @color-white;
+      position: absolute;
+      left: 3px;
+      top: 3px;
+      
+      &:before {
+        .before;
+        height: 2px;
+        background: @color-white;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 2px;
+      }
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-size: 15px;
+      font-weight: 500;
+
+      li {
+        padding: 0 22px;
+        display: inline-block;
+
+        &:first-child { padding-left: 0;}
+        &:last-child { padding-right: 0;}
+
+        @media @md {
+          padding: 0 38px;
+        }
+
+        a {
+          display: block;
+          text-decoration: none;
+          color: @color-white;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}
