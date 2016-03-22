@@ -746,3 +746,111 @@ input[type="submit"]:focus {
 .service .list.slick-initialized .slick-dots li.slick-active .dots {
   background: #fff;
 }
+/* ==========================================================================
+   _CONTACTS
+   ========================================================================== */
+.contacts {
+  padding: 34px 0;
+  font-size: 12px;
+  font-weight: 300;
+  box-shadow: inset 0 22px 22px -12px #dadada;
+}
+@media (min-width: 750px) {
+  .contacts {
+    padding: 40px 0;
+  }
+}
+.contacts .heading {
+  margin: 0 0 26px;
+  text-align: center;
+}
+@media (min-width: 750px) {
+  .contacts .heading {
+    margin-bottom: 32px;
+  }
+}
+.contacts .logo-icon {
+  width: 34px;
+  height: 34px;
+  margin: 0 auto 8px;
+  display: block;
+}
+@media (min-width: 750px) {
+  .contacts .logo-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 16px;
+  }
+}
+.contacts .space {
+  max-width: 176px;
+  margin: 0 auto;
+}
+@media (min-width: 750px) {
+  .contacts .space {
+    max-width: 510px;
+  }
+}
+.contacts .space:after {
+  display: table;
+  content: '\0020';
+  clear: both;
+}
+.contacts .space .col {
+  margin-bottom: 26px;
+}
+@media (min-width: 750px) {
+  .contacts .space .col {
+    width: 50%;
+    margin: 0;
+    padding: 0 40px;
+    float: left;
+  }
+  .contacts .space .col:first-of-type {
+    border-right: 1px solid #dadada;
+  }
+}
+.contacts .h {
+  margin: 0;
+  text-transform: uppercase;
+}
+.contacts .line {
+  margin: 0;
+}
+.contacts .line .tel {
+  padding-left: 18px;
+  display: block;
+  color: #20201e;
+  text-decoration: none;
+  cursor: default;
+  position: relative;
+}
+.contacts .line .tel:before {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  width: 14px;
+  height: 14px;
+  background: url("../img/icons/phone.png") 0 0 no-repeat;
+  background-size: cover;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.contacts .line .mail {
+  padding-left: 18px;
+  display: block;
+  position: relative;
+}
+.contacts .line .mail:before {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  width: 14px;
+  height: 14px;
+  background: url("../img/icons/mail.png") 0 0 no-repeat;
+  background-size: cover;
+  position: absolute;
+  left: 0;
+  top: 2px;
+}

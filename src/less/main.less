@@ -647,7 +647,7 @@ textarea {
         color: @color-white;
       }
 
-      p:last-of-type { margin-bottom: 0;}
+      p:last-of-type { margin-bottom: 0; }
 
       @media @sm {
         width: 50%;
@@ -655,8 +655,8 @@ textarea {
         padding: 0 50px;
         float: left;
 
-        &:nth-child(2n+1) {clear: left;}
-        .icon { margin-left: 0; margin-right: 0;}
+        &:nth-child(2n+1) { clear: left; }
+        .icon { margin-left: 0; margin-right: 0; }
       }
 
       @media @md {
@@ -698,11 +698,114 @@ textarea {
           }
 
           &.slick-active {
-            .dots {
-              background: @color-white;
-            }
+            .dots { background: @color-white; }
           }
         }
+      }
+    }
+  }
+}
+/* ==========================================================================
+   _CONTACTS
+   ========================================================================== */
+.contacts {
+  padding: 34px 0;
+  font-size: 12px;
+  font-weight: 300;
+  box-shadow: inset 0 22px 22px -12px @color-gray;
+
+  @media @sm {
+    padding: 40px 0;
+  }
+
+  .heading {
+    margin: 0 0 26px;
+    text-align: center;
+
+    @media @sm {
+      margin-bottom: 32px;
+    }
+  }
+
+  .logo-icon {
+    width: 34px;
+    height: 34px;
+    margin: 0 auto 8px;
+    display: block;
+
+    @media @sm {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 16px;
+    }
+  }
+
+  .space {
+    max-width: 176px;
+    margin: 0 auto;
+
+    @media @sm {
+      max-width: 510px;
+    }
+
+    &:after { .clearfix; }
+
+    .col { margin-bottom: 26px;}
+    
+    @media @sm {
+      .col {
+        width: 50%;
+        margin: 0;
+        padding: 0 40px;
+        float: left;
+
+        &:first-of-type { border-right: 1px solid @color-gray; }
+      }
+    }
+  }
+
+  .h {
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  .line {
+    margin: 0;
+
+    .tel {
+      padding-left: 18px;
+      display: block;
+      color: @color-font;
+      text-decoration: none;
+      cursor: default;
+      position: relative;
+      
+      &:before {
+        .before;
+        width: 14px;
+        height: 14px;
+        background: url("../img/icons/phone.png") 0 0 no-repeat;
+        background-size: cover;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+    }
+
+    .mail {
+      padding-left: 18px;
+      display: block;
+      position: relative;
+
+      &:before {
+        .before;
+        width: 14px;
+        height: 14px;
+        background: url("../img/icons/mail.png") 0 0 no-repeat;
+        background-size: cover;
+        position: absolute;
+        left: 0;
+        top: 2px;
       }
     }
   }
