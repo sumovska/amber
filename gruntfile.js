@@ -37,7 +37,7 @@ module.exports = function (grunt) {
 
     clean: {
       pre: [dist.root, src.css, src.js + 'vendor'],
-      after: [src.fonts + 'FontAwesome.otf', src.js + 'vendor/fastclick.js', src.js + 'vendor/jquery.nav.js', src.css + 'temp'],
+      after: [src.js + 'vendor/fastclick.js', src.js + 'vendor/jquery.nav.js', src.css + 'temp'],
       dist: [dist.js + 'custom.js']
     },
     copy: {
@@ -59,23 +59,9 @@ module.exports = function (grunt) {
             expand: true,
             flatten: true,
             src: [
-              src.vendor + 'fontawesome/css/font-awesome.min.css'
-            ],
-            dest: src.css + 'vendor'
-          }, {
-            expand: true,
-            flatten: true,
-            src: [
               src.vendor + 'slick.js/slick/slick.css'
             ],
             dest: src.css + 'temp'
-          }, {
-            expand: true,
-            flatten: true,
-            src: [
-              src.vendor + 'fontawesome/fonts/*.*'
-            ],
-            dest: src.fonts
           }
         ]
       },
