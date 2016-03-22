@@ -11,9 +11,12 @@ $(document).ready(function () {
 
 	/** Header */
 	$('.header').each(function () {
-		$('.menu', this).prepend('<span class="toggle"></span>')
+		var _nav = $('.menu', this);
+		_nav.prepend('<span class="toggle"></span>');
+		$('ul', _nav).onePageNav();
 	});
 
+	/** About carousel */
 	$('.about').each(function(){
 		var _list = $('.list', this),
 			settings = {
@@ -48,6 +51,7 @@ $(document).ready(function () {
 		});
 	});
 
+	/** Service carousel */
 	$('.service').each(function(){
 		var _list = $('.list', this),
 			settings = {

@@ -23,6 +23,7 @@
     "fastclick": "~1.0.6",
     "pure": "~0.6.0",
     "fontawesome": "~4.5.0",
-    "slick.js": "~1.5.9"
+    "slick.js": "~1.5.9",
+    "jQuery-One-Page-Nav": "^3.0.0"
   }
 }

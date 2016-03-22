@@ -37,7 +37,7 @@ module.exports = function (grunt) {
 
     clean: {
       pre: [dist.root, src.css, src.js + 'vendor'],
-      after: [src.fonts + 'FontAwesome.otf', src.js + 'vendor/fastclick.js', src.css + 'temp'],
+      after: [src.fonts + 'FontAwesome.otf', src.js + 'vendor/fastclick.js', src.js + 'vendor/jquery.nav.js', src.css + 'temp'],
       dist: [dist.js + 'custom.js']
     },
     copy: {
@@ -48,10 +48,11 @@ module.exports = function (grunt) {
             flatten: true,
             src: [
               src.vendor + 'html5shiv/dist/html5shiv.min.js',
-              src.vendor + 'jquery/dist/jquery.min.js',
+              src.vendor + 'jquery/jquery.min.js',
               src.vendor + 'jquery.browser/dist/jquery.browser.min.js',
               src.vendor + 'fastclick/lib/fastclick.js',
-              src.vendor + 'slick.js/slick/slick.min.js'
+              src.vendor + 'slick.js/slick/slick.min.js',
+              src.vendor + 'jQuery-One-Page-Nav/jquery.nav.js'
             ],
             dest: src.js + 'vendor'
           }, {
@@ -107,7 +108,8 @@ module.exports = function (grunt) {
               src.js + 'custom.js',
               src.js + 'vendor/jquery.browser.min.js',
               src.js + 'vendor/fastclick.min.js',
-              src.js + 'vendor/slick.min.js'
+              src.js + 'vendor/slick.min.js',
+              src.js + 'vendor/jquery.nav.min.js'
             ],
             dest: src.js + 'plugins.js'
           }, {
@@ -166,15 +168,9 @@ module.exports = function (grunt) {
         }, {
           expand: true,
           cwd: src.js + 'vendor',
-          src: 'jquery.fileupload.js',
+          src: 'jquery.nav.js',
           dest: src.js + 'vendor',
-          ext: '.fileupload.min.js'
-        },{
-          expand: true,
-          cwd: src.js + 'vendor',
-          src: 'jquery.ui.widget.js',
-          dest: src.js + 'vendor',
-          ext: '.ui.widget.min.js'
+          ext: '.nav.min.js'
         }]
       }
     },

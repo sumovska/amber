@@ -300,6 +300,7 @@ input[type="submit"]:focus {
   top: 0;
   right: 0;
   z-index: 1000;
+  cursor: default;
 }
 @media (min-width: 750px) {
   .header {
@@ -356,6 +357,9 @@ input[type="submit"]:focus {
   .header .language {
     right: 15px;
   }
+}
+.header .language:hover {
+  color: #f26f19;
 }
 .header .menu {
   display: none;
@@ -422,6 +426,36 @@ input[type="submit"]:focus {
   text-decoration: none;
   color: #fff;
   text-transform: uppercase;
+}
+.header .menu ul li a:hover {
+  color: #f26f19;
+}
+/* ==========================================================================
+   _FOOTER
+   ========================================================================== */
+.footer {
+  height: 49px;
+  padding: 14px 0;
+  border-top: 1px solid #ededed;
+  cursor: default;
+}
+@media (min-width: 750px) {
+  .footer {
+    height: 45px;
+  }
+}
+.footer .copyright {
+  margin: 0;
+  color: #818181;
+  font-size: 9px;
+  text-align: center;
+  font-weight: 300;
+}
+@media (min-width: 750px) {
+  .footer .copyright {
+    font-size: 11px;
+    letter-spacing: .08em;
+  }
 }
 /* ==========================================================================
    _INDEX
@@ -750,14 +784,14 @@ input[type="submit"]:focus {
    _CONTACTS
    ========================================================================== */
 .contacts {
-  padding: 34px 0;
+  padding: 34px 0 16px;
   font-size: 12px;
   font-weight: 300;
   box-shadow: inset 0 22px 22px -12px #dadada;
 }
 @media (min-width: 750px) {
   .contacts {
-    padding: 40px 0;
+    padding: 40px 0 55px;
   }
 }
 .contacts .heading {
@@ -796,17 +830,17 @@ input[type="submit"]:focus {
   content: '\0020';
   clear: both;
 }
-.contacts .space .col {
+.contacts .space .col:first-of-type {
   margin-bottom: 26px;
 }
 @media (min-width: 750px) {
   .contacts .space .col {
     width: 50%;
-    margin: 0;
     padding: 0 40px;
     float: left;
   }
   .contacts .space .col:first-of-type {
+    margin: 0;
     border-right: 1px solid #dadada;
   }
 }
