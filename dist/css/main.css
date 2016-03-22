@@ -1,5 +1,5 @@
 /*
- * Project: Advanced Tattoo Removal
+ * Project: Amber Jet Management
  * File: Main styles
  */
 /* HELVETICA NEUE */
@@ -97,7 +97,7 @@ h4,
 h5,
 h6,
 .about .list li .title,
-.service .list li .title {
+.services .list li .title {
   margin: 0;
   line-height: normal;
   font-weight: bold;
@@ -136,7 +136,7 @@ h5 {
 .h6,
 h6,
 .about .list li .title,
-.service .list li .title {
+.services .list li .title {
   margin: 18px 0 18px;
   font-size: 14px;
   line-height: 18px;
@@ -289,6 +289,94 @@ input[type="submit"]:focus {
   display: table;
   content: '\0020';
   clear: both;
+}
+/* ==========================================================================
+   _SLICK SLIDER (DEFAULT STYLES)
+   ========================================================================== */
+.slick-slider {
+  position: relative;
+  display: block;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+.slick-list {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+.slick-list:focus {
+  outline: none;
+}
+.slick-list.dragging {
+  cursor: pointer;
+}
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.slick-track {
+  display: block;
+  position: relative;
+  left: 0;
+  top: 0;
+}
+.slick-track:before,
+.slick-track:after {
+  content: "";
+  display: table;
+}
+.slick-track:after {
+  clear: both;
+}
+.slick-loading .slick-track {
+  visibility: hidden;
+}
+.slick-slide {
+  height: 100%;
+  min-height: 1px;
+  float: left;
+  display: none;
+}
+[dir="rtl"] .slick-slide {
+  float: right;
+}
+.slick-slide img {
+  display: block;
+}
+.slick-slide.slick-loading img {
+  display: none;
+}
+.slick-slide.dragging img {
+  pointer-events: none;
+}
+.slick-initialized .slick-slide {
+  display: block;
+}
+.slick-loading .slick-slide {
+  visibility: hidden;
+}
+.slick-vertical .slick-slide {
+  display: block;
+  height: auto;
+  border: 1px solid transparent;
+}
+.slick-arrow.slick-hidden {
+  display: none;
 }
 /* ==========================================================================
    _HEADER
@@ -651,41 +739,41 @@ input[type="submit"]:focus {
   background: #f26f19;
 }
 /* ==========================================================================
-   _SERVICE
+   _SERVICES
    ========================================================================== */
-.service {
+.services {
   padding: 26px 0 130px;
+  overflow: hidden;
   color: #fff;
   background: #f26f19 url("../img/temp/bg-1.jpg") 50% 100% no-repeat;
   background-size: cover;
-  overflow: hidden;
 }
 @media (min-width: 750px) {
-  .service {
+  .services {
     padding: 46px 0 206px;
   }
 }
 @media (min-width: 970px) {
-  .service {
+  .services {
     padding-bottom: 236px;
   }
 }
-.service .heading {
+.services .heading {
   margin: 0 0 38px;
   text-align: center;
   color: #fff;
 }
 @media (min-width: 750px) {
-  .service .heading {
+  .services .heading {
     margin: 0 0 8px;
   }
 }
 @media (min-width: 970px) {
-  .service .heading {
+  .services .heading {
     margin: 0 0 65px;
   }
 }
-.service .list {
+.services .list {
   height: 260px;
   margin: 0;
   padding: 0;
@@ -693,83 +781,83 @@ input[type="submit"]:focus {
   overflow: hidden;
 }
 @media (min-width: 750px) {
-  .service .list {
+  .services .list {
     height: auto;
     margin: 0 -50px;
     overflow: visible;
   }
 }
 @media (min-width: 970px) {
-  .service .list {
+  .services .list {
     margin: 0;
   }
 }
-.service .list:after {
+.services .list:after {
   display: table;
   content: '\0020';
   clear: both;
 }
-.service .list li {
+.services .list li {
   min-height: 100px;
   padding: 0 15px;
 }
-.service .list li .icon {
+.services .list li .icon {
   width: 100px;
   height: 100px;
   margin: 0 auto 22px;
   display: block;
 }
-.service .list li .title {
+.services .list li .title {
   margin: 0 0 18px;
   color: #fff;
 }
-.service .list li p:last-of-type {
+.services .list li p:last-of-type {
   margin-bottom: 0;
 }
 @media (min-width: 750px) {
-  .service .list li {
+  .services .list li {
     width: 50%;
     margin-bottom: 30px;
     padding: 0 50px;
     float: left;
   }
-  .service .list li:nth-child(2n+1) {
+  .services .list li:nth-child(2n+1) {
     clear: left;
   }
-  .service .list li .icon {
+  .services .list li .icon {
     margin-left: 0;
     margin-right: 0;
   }
 }
 @media (min-width: 970px) {
-  .service .list li {
+  .services .list li {
     margin-bottom: 84px;
     padding-left: 200px;
     position: relative;
   }
-  .service .list li .icon {
+  .services .list li .icon {
     margin: 0;
     position: absolute;
     left: 60px;
     top: 16px;
   }
 }
-.service .list.slick-initialized {
+.services .list.slick-initialized {
   height: auto;
   overflow: visible;
 }
-.service .list.slick-initialized .slick-dots {
+.services .list.slick-initialized .slick-dots {
   margin: 14px 0;
   padding: 0;
   list-style: none;
   text-align: center;
 }
-.service .list.slick-initialized .slick-dots li {
+.services .list.slick-initialized .slick-dots li {
   min-height: 0;
   padding: 0 6px;
   display: inline-block;
 }
-.service .list.slick-initialized .slick-dots li .dots {
+.services .list.slick-initialized .slick-dots li .dots {
   width: 9px;
   height: 9px;
   display: block;
@@ -777,7 +865,7 @@ input[type="submit"]:focus {
   background: #dadada;
   border-radius: 50%;
 }
-.service .list.slick-initialized .slick-dots li.slick-active .dots {
+.services .list.slick-initialized .slick-dots li.slick-active .dots {
   background: #fff;
 }
 /* ==========================================================================

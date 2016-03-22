@@ -1,5 +1,5 @@
 /*
- * Project: Advanced Tattoo Removal
+ * Project: Amber Jet Management
  * File: Main styles
  */
 
@@ -24,10 +24,10 @@
 @color-gray: #dadada;
 @color-brown: #470e12;
 
-@margin-md: 18px;
-
 @duration: .2s ease;
+
 @images: '../img';
+@fonts: '../fonts';
 // ==========================================================================
 // _MIXINS
 // ========================================================================== */
@@ -105,7 +105,7 @@ body {
    _TEXT STYLES
    ========================================================================== */
 p {
-  margin: 0 0 @margin-md;
+  margin: 0 0 18px;
 }
 :focus { outline: -webkit-focus-ring-color auto 0; }
 a {
@@ -128,37 +128,37 @@ audio, canvas, img, video { vertical-align: middle; }
 }
 .h1 {
   &:extend(.h-default);
-  margin: @margin-md 0 @margin-md;
+  margin: 18px 0 18px;
   font-size: 30px;
   font-style: normal;
 }
 .h2 {
   &:extend(.h-default);
-  margin: @margin-md 0 @margin-md;
+  margin: 18px 0 18px;
   font-size: 24px;
   font-style: normal;
 }
 .h3 {
   &:extend(.h-default);
-  margin: @margin-md 0 @margin-md;
+  margin: 18px 0 18px;
   font-size: 24px;
   font-style: normal;
 }
 .h4 {
   &:extend(.h-default);
-  margin: @margin-md 0 @margin-md;
+  margin: 18px 0 18px;
   font-size: 18px;
   font-style: normal;
 }
 .h5 {
   &:extend(.h-default);
-  margin: @margin-md 0 @margin-md;
+  margin: 18px 0 18px;
   font-size: 16px;
   font-style: normal;
 }
 .h6 {
   &:extend(.h-default);
-  margin: @margin-md 0 @margin-md;
+  margin: 18px 0 18px;
   font-size: 14px;
   line-height: 18px;
   font-style: normal;
@@ -262,9 +262,70 @@ textarea {
 /* FORM LINE */
 .form-line {
   margin-bottom: 22px;
-
   &:after { .clearfix; }
 }
+/* ==========================================================================
+   _SLICK SLIDER (DEFAULT STYLES)
+   ========================================================================== */
+.slick-slider {
+  position: relative;
+  display: block;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+.slick-list {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  padding: 0;
+  &:focus { outline: none; }
+  &.dragging { cursor: pointer; }
+}
+.slick-slider .slick-track, .slick-slider .slick-list {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.slick-track {
+  display: block;
+  position: relative;
+  left: 0;
+  top: 0;
+  &:before, &:after { content: ""; display: table; }
+  &:after { clear: both; }
+  .slick-loading & { visibility: hidden; }
+}
+.slick-slide {
+  height: 100%;
+  min-height: 1px;
+  float: left;
+  display: none;
+
+  [dir="rtl"] & { float: right; }
+  img { display: block; }
+  &.slick-loading img { display: none; }
+  &.dragging img { pointer-events: none; }
+  .slick-initialized & { display: block; }
+  .slick-loading & { visibility: hidden; }
+  .slick-vertical & {
+    display: block;
+    height: auto;
+    border: 1px solid transparent;
+  }
+}
+.slick-arrow.slick-hidden { display: none; }
 /* ==========================================================================
    _HEADER
    ========================================================================== */
@@ -331,7 +392,7 @@ textarea {
       right: 15px;
     }
 
-    &:hover {color: @color-orange;}
+    &:hover { color: @color-orange; }
   }
 
   .menu {
@@ -394,7 +455,7 @@ textarea {
           color: @color-white;
           text-transform: uppercase;
 
-          &:hover {color: @color-orange;}
+          &:hover { color: @color-orange; }
         }
       }
     }
@@ -611,19 +672,18 @@ textarea {
   }
 }
 /* ==========================================================================
-   _SERVICE
+   _SERVICES
    ========================================================================== */
-.service {
+.services {
   padding: 26px 0 130px;
+  overflow: hidden;
   color: @color-white;
   background: @color-orange url("../img/temp/bg-1.jpg") 50% 100% no-repeat;
   background-size: cover;
-  overflow: hidden;
 
   @media @sm {
     padding: 46px 0 206px;
   }
-
   @media @md {
     padding-bottom: 236px;
   }
@@ -782,9 +842,9 @@ textarea {
     &:after { .clearfix; }
 
     .col {
-      &:first-of-type {margin-bottom: 26px; }
+      &:first-of-type { margin-bottom: 26px; }
     }
-    
+
     @media @sm {
       .col {
         width: 50%;
@@ -811,7 +871,7 @@ textarea {
       text-decoration: none;
       cursor: default;
       position: relative;
-      
+
       &:before {
         .before;
         width: 14px;

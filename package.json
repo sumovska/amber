@@ -1,5 +1,5 @@
 {
-  "name": "tattoo",
+  "name": "amber",
   "version": "0.1.0",
   "description": "HTML/CSS Markup",
   "main": "index.js",
@@ -24,9 +24,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/squad1/just-tailor.git"
+    "url": "git@github.com:sumovska/amber.git"
   },
   "author": "Squad One",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/squad1/just-tailor#readme"
+  "homepage": "http://m1ron.com"
 }

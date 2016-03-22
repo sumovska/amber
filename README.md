@@ -12,9 +12,9 @@
 ###Components
 
 * Html5shiv
-* jQuery
-* jQuery.browser
+* Normalize.css
 * Fastlick
+* jQuery
 * PureCSS
 
 

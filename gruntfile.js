@@ -37,7 +37,7 @@ module.exports = function (grunt) {
 
     clean: {
       pre: [dist.root, src.css, src.js + 'vendor'],
-      after: [src.js + 'vendor/fastclick.js', src.js + 'vendor/jquery.nav.js', src.css + 'temp'],
+      after: [src.js + 'vendor/fastclick.js', src.css + 'temp'],
       dist: [dist.js + 'custom.js']
     },
     copy: {
@@ -48,20 +48,18 @@ module.exports = function (grunt) {
             flatten: true,
             src: [
               src.vendor + 'html5shiv/dist/html5shiv.min.js',
-              src.vendor + 'jquery/jquery.min.js',
-              src.vendor + 'jquery.browser/dist/jquery.browser.min.js',
+              src.vendor + 'jquery/dist/jquery.min.js',
               src.vendor + 'fastclick/lib/fastclick.js',
-              src.vendor + 'slick.js/slick/slick.min.js',
-              src.vendor + 'jQuery-One-Page-Nav/jquery.nav.js'
+              src.vendor + 'slick.js/slick/slick.min.js'
             ],
             dest: src.js + 'vendor'
           }, {
             expand: true,
             flatten: true,
             src: [
-              src.vendor + 'slick.js/slick/slick.css'
+              src.vendor + 'normalize-css/normalize.css'
             ],
-            dest: src.css + 'temp'
+            dest: src.css
           }
         ]
       },
@@ -92,23 +90,10 @@ module.exports = function (grunt) {
           {
             src: [
               src.js + 'custom.js',
-              src.js + 'vendor/jquery.browser.min.js',
               src.js + 'vendor/fastclick.min.js',
-              src.js + 'vendor/slick.min.js',
-              src.js + 'vendor/jquery.nav.min.js'
+              src.js + 'vendor/slick.min.js'
             ],
             dest: src.js + 'plugins.js'
-          }, {
-            src: [
-              src.css + 'vendor/*.min.css'
-            ],
-            dest: src.css + 'plugins.css'
-          }, {
-            src: [
-              src.vendor + 'pure/pure-min.css',
-              src.vendor + 'pure/grids-responsive-min.css'
-            ],
-            dest: src.css + 'pure.css'
           }
         ]
       }
