@@ -10,6 +10,7 @@
 @md-width: 730px;
 @lg-width: 1000px;
 
+@xxs: ~"(min-width: 440px)";
 @xs: ~"(min-width: 568px)";
 @sm: ~"(min-width: 750px)";
 @md: ~"(min-width: 970px)";
@@ -28,7 +29,6 @@
 @duration: .2s ease;
 
 @images: '../img';
-@fonts: '../fonts';
 // ==========================================================================
 // _MIXINS
 // ========================================================================== */
@@ -323,8 +323,8 @@ textarea {
     height: 32px;
     display: block;
     position: absolute;
-    left: 15px;
-    top: 15px;
+    left: 14px;
+    top: 16px;
 
     img {
       width: 100%;
@@ -342,8 +342,8 @@ textarea {
     color: @color-white;
     text-decoration: none;
     position: absolute;
-    right: 3px;
-    top: 6px;
+    top: 7px;
+    right: 0;
     &:focus, &:hover { color: @color-orange; }
   }
 
@@ -405,8 +405,8 @@ textarea {
 
   @media @sm {
     height: 80px;
-    .logo { width: 190px; height: 60px; top: 16px; left: 12px; }
-    .language { top: 20px; }
+    .logo { width: 190px; height: 60px; left: 12px; }
+    .language { top: 20px; right: 3px; }
     .menu { display: block; }
   }
   @media @md {
@@ -419,28 +419,6 @@ textarea {
   }
 }
 /* ==========================================================================
-   _FOOTER
-   ========================================================================== */
-.footer {
-  height: 49px;
-  padding: 14px 0;
-  border-top: 1px solid #ededed;
-  cursor: default;
-
-  .copyright {
-    margin: 0;
-    color: #818181;
-    font-size: 9px;
-    text-align: center;
-    font-weight: 300;
-  }
-
-  @media @sm {
-    height: 45px;
-    .copyright { font-size: 11px; letter-spacing: .08em; }
-  }
-}
-/* ==========================================================================
    _INDEX
    ========================================================================== */
 .index {
@@ -449,6 +427,7 @@ textarea {
   padding-bottom: 20px;
   color: @color-white;
   position: relative;
+  z-index: 1;
   overflow: hidden;
   background: @color-brown;
   cursor: default;
@@ -456,20 +435,21 @@ textarea {
   &:before {
     width: 456px;
     height: 450px;
-    margin: -225px 0 0 -653px;
+    margin: -225px 0 0 -290px;
     content: '';
     display: block;
     position: absolute;
-    left: 50%;
+    left: 0;
     top: 100%;
-    background: url('../img/figure.svg') no-repeat 0 0;
+    z-index: -1;
+    background: url('@{images}/figure.svg') no-repeat 0 0;
     background-size: contain;
   }
 
   @media @sm {
     padding-top: 76px;
     padding-bottom: 34px;
-    &:before { margin-left: -653px; }
+    &:before { margin-left: -653px; left: 50%; }
   }
   @media @md {
     &:before { margin-left: -710px; }
@@ -513,7 +493,7 @@ textarea {
         position: absolute;
         right: -12px;
         top: -3px;
-        background: url("../img/paper-plane.png") 0 0 no-repeat;
+        background: url("@{images}/paper-plane.png") 0 0 no-repeat;
         background-size: cover;
       }
 
@@ -553,38 +533,25 @@ textarea {
    _ABOUT
    ========================================================================== */
 .about {
-  padding: 26px 0;
-
-  @media @sm {
-    padding: 36px 0;
-  }
+  padding: 20px 0;
 
   .heading {
-    margin: 0 0 44px;
+    margin: 0 0 40px;
     text-align: center;
   }
 
   .list {
     height: 124px;
-    margin: 0;
     padding: 0;
+    margin: 0 -15px;
     list-style: none;
     overflow: hidden;
-
-    @media @sm {
-      height: auto;
-      overflow: visible;
-    }
-
-    @media @md {
-      padding: 0 90px;
-    }
-
     &:after { .clearfix; }
 
     li {
       min-height: 75px;
-      padding-left: 108px;
+      padding-left: 118px;
+      padding-right: 15px;
       position: relative;
 
       .icon {
@@ -592,29 +559,15 @@ textarea {
         height: 75px;
         display: block;
         position: absolute;
-        left: 0;
+        left: 20px;
         top: 0;
       }
 
       .title {
         &:extend(.h6);
-        margin: 0 0 18px;
-      }
-
-      @media @sm {
-        width: 80%;
-        margin-bottom: 28px;
-        padding: 10px 10px 10px 90px;
-        float: left;
-        clear: left;
-
-        &:nth-child(2n) { width: 70%; float: right; }
-        .icon { top: 5px; }
-      }
-
-      @media @md {
-        width: 65%;
-        &:nth-child(2n) { width: 60%; }
+        height: 36px;
+        margin: 0;
+        line-height: 18px;
       }
     }
 
@@ -630,24 +583,55 @@ textarea {
 
         li {
           min-height: 0;
-          padding: 0 6px;
+          padding: 0 3px;
           display: inline-block;
 
-          .dots {
-            width: 9px;
-            height: 9px;
+          .dot {
+            width: 16px;
+            height: 16px;
+            border: 3px solid @color-white;
+            border-radius: 50%;
             display: block;
             cursor: pointer;
             background: @color-gray;
-            border-radius: 50%;
+            transition: background-color @duration;
           }
 
           &.slick-active {
-            .dots {
-              background: @color-orange;
-            }
+            .dot { background: @color-orange; }
           }
         }
+      }
+    }
+  }
+
+  @media @sm {
+    padding: 30px 0;
+
+    .list {
+      height: auto !important;
+      margin: 0 0 30px;
+
+      li {
+        width: 70%;
+        padding: 10px 10px 10px 90px;
+        margin-bottom: 30px;
+        float: left;
+        clear: left;
+        &:last-child { margin-bottom: 0; }
+        &:nth-child(2n) { float: right; }
+        .icon { top: 5px; left: 0; }
+        .title { height: auto; margin-bottom: 18px; }
+      }
+    }
+  }
+  @media @md {
+    .list {
+      padding: 0 90px;
+
+      li {
+        width: 500px;
+        &:nth-child(2n) { width: 450px; }
       }
     }
   }
@@ -659,47 +643,23 @@ textarea {
   padding: 26px 0 130px;
   overflow: hidden;
   color: @color-white;
-  background: @color-orange url("../img/landing.jpg") 50% 100% no-repeat;
-  background-size: cover;
-
-  @media @sm {
-    padding: 46px 0 206px;
-  }
-  @media @md {
-    padding-bottom: 236px;
-  }
+  .color-black(.15);
+  box-shadow: inset 0 20px 20px -10px @color;
+  background: @color-dirt url("@{images}/landing-mobile.jpg") 50% 100% no-repeat;
+  background-size: 440px 200px;
 
   .heading {
     margin: 0 0 38px;
-    text-align: center;
     color: @color-white;
-
-    @media @sm {
-      margin: 0 0 8px;
-    }
-
-    @media @md {
-      margin: 0 0 65px;
-    }
+    text-align: center;
   }
 
   .list {
     height: 260px;
-    margin: 0;
     padding: 0;
+    margin: 0;
     list-style: none;
     overflow: hidden;
-
-    @media @sm {
-      height: auto;
-      margin: 0 -50px;
-      overflow: visible;
-    }
-
-    @media @md {
-      margin: 0;
-    }
-
     &:after { .clearfix; }
 
     li {
@@ -713,35 +673,13 @@ textarea {
         display: block;
       }
 
+      p:not(.title) { min-height: 54px; }
+      p:last-of-type { margin-bottom: 0; }
+
       .title {
         &:extend(.h6);
         margin: 0 0 18px;
         color: @color-white;
-      }
-
-      p:last-of-type { margin-bottom: 0; }
-
-      @media @sm {
-        width: 50%;
-        margin-bottom: 30px;
-        padding: 0 50px;
-        float: left;
-
-        &:nth-child(2n+1) { clear: left; }
-        .icon { margin-left: 0; margin-right: 0; }
-      }
-
-      @media @md {
-        margin-bottom: 84px;
-        padding-left: 200px;
-        position: relative;
-
-        .icon {
-          margin: 0;
-          position: absolute;
-          left: 60px;
-          top: 16px;
-        }
       }
     }
 
@@ -760,7 +698,7 @@ textarea {
           padding: 0 6px;
           display: inline-block;
 
-          .dots {
+          .dot {
             width: 9px;
             height: 9px;
             display: block;
@@ -770,9 +708,49 @@ textarea {
           }
 
           &.slick-active {
-            .dots { background: @color-white; }
+            .dot { background: @color-white; }
           }
         }
+      }
+    }
+  }
+
+  @media @xxs {
+    background-size: contain;
+  }
+  @media @sm {
+    padding: 45px 0 205px;
+    background-image: url("@{images}/landing.jpg");
+
+    .heading { margin: 0 0 8px; }
+    .list {
+      height: auto;
+      margin: 0 -50px;
+      overflow: visible;
+
+      li {
+        width: 50%;
+        margin-bottom: 30px;
+        padding: 0 50px;
+        float: left;
+        &:nth-child(2n+1) { clear: left; }
+
+        p:not(.title) { min-height: 0; }
+        .icon { margin-left: 0; margin-right: 0; }
+      }
+    }
+  }
+  @media @md {
+    padding-bottom: 236px;
+    .heading { margin: 0 0 65px; }
+    .list {
+      margin: 0;
+
+      li {
+        margin-bottom: 84px;
+        padding-left: 200px;
+        position: relative;
+        .icon { margin: 0; position: absolute; left: 60px; top: 16px; }
       }
     }
   }
@@ -781,17 +759,16 @@ textarea {
    _CONTACTS
    ========================================================================== */
 .contacts {
-  padding: 34px 0 16px;
-  font-size: 12px;
-  font-weight: 300;
-  box-shadow: inset 0 22px 22px -12px @color-gray;
+  padding: 30px 0 15px;
+  .color-black(.15);
+  box-shadow: inset 0 20px 20px -10px @color;
 
   @media @sm {
     padding: 40px 0 55px;
   }
 
   .heading {
-    margin: 0 0 26px;
+    margin: 0 0 25px;
     text-align: center;
 
     @media @sm {
@@ -800,9 +777,9 @@ textarea {
   }
 
   .figure {
-    width: 34px;
-    height: 34px;
-    margin: 0 auto 8px;
+    width: 35px;
+    height: 35px;
+    margin: 3px auto;
     display: block;
 
     @media @sm {
@@ -812,74 +789,74 @@ textarea {
     }
   }
 
-  .space {
-    max-width: 176px;
+  .hcard {
+    max-width: 182px;
     margin: 0 auto;
+    font-size: 12px;
+    font-weight: 300;
+    &:after { .clearfix; }
+
+    .col:first-child { margin-bottom: 25px; }
+    .h { margin: 0; text-transform: uppercase; }
+    .line { margin: 0; }
+
+    .tel, .mail {
+      padding-left: 16px;
+      display: block;
+      position: relative;
+
+      &:before {
+        .before;
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        left: -1px;
+        top: 1px;
+        background: url("@{images}/icons.png") -15px 0 no-repeat;
+        background-size: auto 15px;
+        opacity: .5;
+      }
+    }
+    .tel {
+      color: @color-font;
+      text-decoration: none;
+      cursor: default;
+    }
+    .mail {
+      &:before { top: 2px; background-position: 0 0; }
+    }
 
     @media @sm {
       max-width: 510px;
-    }
 
-    &:after { .clearfix; }
-
-    .col {
-      &:first-of-type { margin-bottom: 26px; }
-    }
-
-    @media @sm {
       .col {
         width: 50%;
         padding: 0 40px;
         float: left;
-
         &:first-of-type { margin: 0; border-right: 1px solid @color-gray; }
       }
     }
   }
+}
+/* ==========================================================================
+   _FOOTER
+   ========================================================================== */
+.footer {
+  padding: 14px 0;
+  border-top: 1px solid #ededed;
+  cursor: default;
 
-  .h {
+  .copyright {
     margin: 0;
-    text-transform: uppercase;
+    color: #818181;
+    font-size: 9px;
+    line-height: 12px;
+    text-align: center;
+    font-weight: 300;
   }
 
-  .line {
-    margin: 0;
-
-    .tel {
-      padding-left: 18px;
-      display: block;
-      color: @color-font;
-      text-decoration: none;
-      cursor: default;
-      position: relative;
-
-      &:before {
-        .before;
-        width: 14px;
-        height: 14px;
-        background: url("../img/icons/phone.png") 0 0 no-repeat;
-        background-size: cover;
-        position: absolute;
-        left: 0;
-        top: 0;
-      }
-    }
-
-    .mail {
-      padding-left: 18px;
-      display: block;
-      position: relative;
-
-      &:before {
-        .before;
-        width: 14px;
-        height: 14px;
-        background: url("../img/icons/mail.png") 0 0 no-repeat;
-        background-size: cover;
-        position: absolute;
-        left: 0;
-        top: 2px;
-      }
-    }
+  @media @sm {
+    height: 45px;
+    .copyright { font-size: 11px; letter-spacing: .08em; }
   }
 }
