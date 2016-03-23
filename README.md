@@ -1,4 +1,4 @@
-# Amber
+# Amber Jet Management
 *Responsive markup*
 
 ###Technologies
@@ -15,7 +15,6 @@
 * Normalize.css
 * Fastlick
 * jQuery
-* PureCSS
 
 
 ###Installation
