@@ -9,6 +9,13 @@ $(document).ready(function () {
 	/** Fastclick */
 	FastClick.attach(document.body);
 
+	$('.menu').each(function () {
+		$('a', this).click(function (e) {
+			$('html,body').animate({scrollTop: $($(this).attr('href')).offset().top}, 'slow');
+			e.preventDefault();
+		});
+	});
+
 	/** Carousels */
 	$('.about, .services').each(function () {
 		var carousel = $('.list', this),
