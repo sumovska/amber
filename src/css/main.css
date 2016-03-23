@@ -2,41 +2,32 @@
  * Project: Amber Jet Management
  * File: Main styles
  */
-/* HELVETICA NEUE */
-@font-face {
-  font-family: 'Helvetica Neue';
-  src: url('../fonts/helvetica-neue-light-webfont.eot');
-  src: local('☺'), url('../fonts/helvetica-neue-light-webfont.woff') format('woff'), url('../fonts/helvetica-neue-light-webfont.ttf') format('truetype'), url('../fonts/helvetica-neue-light-webfont.svg') format('svg');
-  font-weight: 300;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Helvetica Neue';
-  src: url('../fonts/helvetica-neue-medium-webfont.eot');
-  src: local('☺'), url('../fonts/helvetica-neue-medium-webfont.woff') format('woff'), url('../fonts/helvetica-neue-medium-webfont.ttf') format('truetype'), url('../fonts/helvetica-neue-medium-webfont.svg') format('svg');
-  font-weight: 500;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Helvetica Neue';
-  src: url('../fonts/helvetica-neue-roman-webfont.eot');
-  src: local('☺'), url('../fonts/helvetica-neue-roman-webfont.woff') format('woff'), url('../fonts/helvetica-neue-roman-webfont.ttf') format('truetype'), url('../fonts/helvetica-neue-roman-webfont.svg') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Helvetica Neue';
-  src: url('../fonts/helvetica-neue-bold-webfont.eot');
-  src: local('☺'), url('../fonts/helvetica-neue-bold-webfont.woff') format('woff'), url('../fonts/helvetica-neue-bold-webfont.ttf') format('truetype'), url('../fonts/helvetica-neue-bold-webfont.svg') format('svg');
-  font-weight: bold;
-  font-style: normal;
-}
 /* ==========================================================================
    _GENERAL STYLES
    ========================================================================== */
 * {
   box-sizing: border-box;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+::selection {
+  color: #fff;
+  background-color: #d46f2c;
+}
+::-o-selection {
+  color: #fff;
+  background-color: #d46f2c;
+}
+::-ms-selection {
+  color: #fff;
+  background-color: #d46f2c;
+}
+::-moz-selection {
+  color: #fff;
+  background-color: #d46f2c;
+}
+::-webkit-selection {
+  color: #fff;
+  background-color: #d46f2c;
 }
 html {
   width: 100%;
@@ -390,11 +381,6 @@ input[type="submit"]:focus {
   z-index: 1000;
   cursor: default;
 }
-@media (min-width: 750px) {
-  .header {
-    height: 80px;
-  }
-}
 .header > .wrapper {
   height: 100%;
   position: relative;
@@ -408,18 +394,6 @@ input[type="submit"]:focus {
   left: 15px;
   top: 15px;
 }
-@media (min-width: 750px) {
-  .header .logo {
-    width: 183px;
-    height: 50px;
-    top: 20px;
-  }
-}
-@media (min-width: 970px) {
-  .header .logo {
-    left: 28px;
-  }
-}
 .header .logo img {
   width: 100%;
   height: 100%;
@@ -428,71 +402,56 @@ input[type="submit"]:focus {
 .header .language {
   padding: 15px;
   font-size: 13px;
+  line-height: 14px;
   font-weight: 500;
   display: block;
   color: #fff;
   text-decoration: none;
   position: absolute;
-  right: 0;
+  right: 3px;
   top: 6px;
 }
-@media (min-width: 750px) {
-  .header .language {
-    top: 20px;
-  }
-}
-@media (min-width: 970px) {
-  .header .language {
-    right: 15px;
-  }
-}
+.header .language:focus,
 .header .language:hover {
   color: #f26f19;
 }
 .header .menu {
+  padding-left: 40px;
   display: none;
+  position: absolute;
+  left: 258px;
+  top: 35px;
 }
-@media (min-width: 750px) {
-  .header .menu {
-    display: block;
-    padding-left: 40px;
-    position: absolute;
-    left: 258px;
-    top: 35px;
-  }
-}
-@media (min-width: 970px) {
-  .header .menu {
-    left: 362px;
-  }
-}
-.header .menu .toggle {
-  width: 14px;
-  height: 10px;
+.header .menu:before,
+.header .menu:after {
+  content: '\0020';
   display: block;
+  overflow: hidden;
+  position: absolute;
+}
+.header .menu:before {
+  width: 14px;
+  height: 6px;
   border-top: 2px solid #fff;
   border-bottom: 2px solid #fff;
-  position: absolute;
   left: 3px;
   top: 3px;
 }
-.header .menu .toggle:before {
-  display: block;
-  content: '\0020';
-  overflow: hidden;
+.header .menu:after {
+  width: 14px;
   height: 2px;
+  left: 3px;
+  top: 7px;
   background: #fff;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 2px;
 }
 .header .menu ul {
-  margin: 0;
   padding: 0;
+  margin: 0;
   list-style: none;
   font-size: 15px;
+  line-height: 15px;
   font-weight: 500;
+  letter-spacing: -0.01em;
 }
 .header .menu ul li {
   padding: 0 22px;
@@ -504,19 +463,46 @@ input[type="submit"]:focus {
 .header .menu ul li:last-child {
   padding-right: 0;
 }
-@media (min-width: 970px) {
-  .header .menu ul li {
-    padding: 0 38px;
-  }
-}
 .header .menu ul li a {
   display: block;
   text-decoration: none;
   color: #fff;
   text-transform: uppercase;
 }
+.header .menu ul li a:focus,
 .header .menu ul li a:hover {
   color: #f26f19;
+}
+@media (min-width: 750px) {
+  .header {
+    height: 80px;
+  }
+  .header .logo {
+    width: 190px;
+    height: 60px;
+    top: 16px;
+    left: 12px;
+  }
+  .header .language {
+    top: 20px;
+  }
+  .header .menu {
+    display: block;
+  }
+}
+@media (min-width: 970px) {
+  .header .logo {
+    left: 25px;
+  }
+  .header .language {
+    right: 15px;
+  }
+  .header .menu {
+    left: 362px;
+  }
+  .header .menu ul li {
+    padding: 0 38px;
+  }
 }
 /* ==========================================================================
    _FOOTER
@@ -527,11 +513,6 @@ input[type="submit"]:focus {
   border-top: 1px solid #ededed;
   cursor: default;
 }
-@media (min-width: 750px) {
-  .footer {
-    height: 45px;
-  }
-}
 .footer .copyright {
   margin: 0;
   color: #818181;
@@ -540,6 +521,9 @@ input[type="submit"]:focus {
   font-weight: 300;
 }
 @media (min-width: 750px) {
+  .footer {
+    height: 45px;
+  }
   .footer .copyright {
     font-size: 11px;
     letter-spacing: .08em;
@@ -553,14 +537,35 @@ input[type="submit"]:focus {
   padding-top: 60px;
   padding-bottom: 20px;
   color: #fff;
-  background: #470e12 url("../img/temp/figure.png") -90px 100% no-repeat;
-  background-size: 256px 232px;
+  position: relative;
+  overflow: hidden;
+  background: #470e12;
+  cursor: default;
+}
+.index:before {
+  width: 456px;
+  height: 450px;
+  margin: -225px 0 0 -653px;
+  content: '';
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  background: url('../img/figure.svg') no-repeat 0 0;
+  background-size: contain;
 }
 @media (min-width: 750px) {
   .index {
-    padding-top: 80px;
+    padding-top: 76px;
     padding-bottom: 34px;
-    background-position: 0 100%;
+  }
+  .index:before {
+    margin-left: -653px;
+  }
+}
+@media (min-width: 970px) {
+  .index:before {
+    margin-left: -710px;
   }
 }
 .index > .wrapper {
@@ -586,6 +591,8 @@ input[type="submit"]:focus {
 }
 .index .quote .author {
   padding-right: 40px;
+  display: block;
+  font-style: normal;
   text-align: right;
   position: relative;
 }
@@ -595,11 +602,11 @@ input[type="submit"]:focus {
   overflow: hidden;
   width: 38px;
   height: 29px;
-  background: url("../img/temp/arrow.png") 0 0 no-repeat;
-  background-size: cover;
   position: absolute;
   right: -12px;
   top: -3px;
+  background: url("../img/paper-plane.png") 0 0 no-repeat;
+  background-size: cover;
 }
 .index .quote .author cite {
   font-style: normal;
@@ -611,8 +618,9 @@ input[type="submit"]:focus {
     line-height: 28px;
   }
   .index .quote .slogan {
-    max-width: 410px;
-    margin-bottom: 18px;
+    max-width: 465px;
+    padding-right: 38px;
+    margin-bottom: 19px;
   }
   .index .quote .author {
     padding-right: 85px;
@@ -622,7 +630,7 @@ input[type="submit"]:focus {
     width: 62px;
     height: 48px;
     right: 12px;
-    top: -28px;
+    top: -26px;
   }
 }
 @media (min-width: 970px) {
@@ -745,7 +753,7 @@ input[type="submit"]:focus {
   padding: 26px 0 130px;
   overflow: hidden;
   color: #fff;
-  background: #f26f19 url("../img/temp/bg-1.jpg") 50% 100% no-repeat;
+  background: #f26f19 url("../img/landing.jpg") 50% 100% no-repeat;
   background-size: cover;
 }
 @media (min-width: 750px) {
@@ -891,14 +899,14 @@ input[type="submit"]:focus {
     margin-bottom: 32px;
   }
 }
-.contacts .logo-icon {
+.contacts .figure {
   width: 34px;
   height: 34px;
   margin: 0 auto 8px;
   display: block;
 }
 @media (min-width: 750px) {
-  .contacts .logo-icon {
+  .contacts .figure {
     width: 50px;
     height: 50px;
     margin-bottom: 16px;

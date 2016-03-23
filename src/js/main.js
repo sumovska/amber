@@ -9,15 +9,8 @@ $(document).ready(function () {
 	/** Fastclick */
 	FastClick.attach(document.body);
 
-	/** Header */
-	$('.header').each(function () {
-		var _nav = $('.menu', this);
-		_nav.prepend('<span class="toggle"></span>');
-		$('ul', _nav).onePageNav();
-	});
-
 	/** About carousel */
-	$('.about').each(function(){
+	$('.about').each(function () {
 		var _list = $('.list', this),
 			settings = {
 				slidesToShow: 1,
@@ -52,7 +45,7 @@ $(document).ready(function () {
 	});
 
 	/** Service carousel */
-	$('.service').each(function(){
+	$('.service').each(function () {
 		var _list = $('.list', this),
 			settings = {
 				slidesToShow: 1,

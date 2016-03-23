@@ -23,6 +23,7 @@
 @color-orange: #f26f19;
 @color-gray: #dadada;
 @color-brown: #470e12;
+@color-dirt: #d46f2c;
 
 @duration: .2s ease;
 
@@ -43,38 +44,6 @@
   transform: rotate(@deg);
   -webkit-backface-visibility: hidden;
 }
-// ==========================================================================
-// _FONTS
-// ========================================================================== */
-/* HELVETICA NEUE */
-@font-face {
-  font-family: 'Helvetica Neue';
-  src: url('../fonts/helvetica-neue-light-webfont.eot');
-  src: local('☺'), url('../fonts/helvetica-neue-light-webfont.woff') format('woff'), url('../fonts/helvetica-neue-light-webfont.ttf') format('truetype'), url('../fonts/helvetica-neue-light-webfont.svg') format('svg');
-  font-weight: 300;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Helvetica Neue';
-  src: url('../fonts/helvetica-neue-medium-webfont.eot');
-  src: local('☺'), url('../fonts/helvetica-neue-medium-webfont.woff') format('woff'), url('../fonts/helvetica-neue-medium-webfont.ttf') format('truetype'), url('../fonts/helvetica-neue-medium-webfont.svg') format('svg');
-  font-weight: 500;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Helvetica Neue';
-  src: url('../fonts/helvetica-neue-roman-webfont.eot');
-  src: local('☺'), url('../fonts/helvetica-neue-roman-webfont.woff') format('woff'), url('../fonts/helvetica-neue-roman-webfont.ttf') format('truetype'), url('../fonts/helvetica-neue-roman-webfont.svg') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Helvetica Neue';
-  src: url('../fonts/helvetica-neue-bold-webfont.eot');
-  src: local('☺'), url('../fonts/helvetica-neue-bold-webfont.woff') format('woff'), url('../fonts/helvetica-neue-bold-webfont.ttf') format('truetype'), url('../fonts/helvetica-neue-bold-webfont.svg') format('svg');
-  font-weight: bold;
-  font-style: normal;
-}
 /* ==========================================================================
    _GENERAL STYLES
    ========================================================================== */
@@ -82,6 +51,11 @@
   box-sizing: border-box;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+::selection { color: @color-white; background-color: @color-dirt; }
+::-o-selection { color: @color-white; background-color: @color-dirt; }
+::-ms-selection { color: @color-white; background-color: @color-dirt; }
+::-moz-selection { color: @color-white; background-color: @color-dirt; }
+::-webkit-selection { color: @color-white; background-color: @color-dirt; }
 html {
   width: 100%;
   height: 100%;
@@ -338,10 +312,6 @@ textarea {
   z-index: 1000;
   cursor: default;
 
-  @media @sm {
-    height: 80px;
-  }
-
   > .wrapper {
     height: 100%;
     position: relative;
@@ -356,16 +326,6 @@ textarea {
     left: 15px;
     top: 15px;
 
-    @media @sm {
-      width: 183px;
-      height: 50px;
-      top: 20px;
-    }
-
-    @media @md {
-      left: 28px;
-    }
-
     img {
       width: 100%;
       height: 100%;
@@ -376,88 +336,85 @@ textarea {
   .language {
     padding: 15px;
     font-size: 13px;
+    line-height: 14px;
     font-weight: 500;
     display: block;
     color: @color-white;
     text-decoration: none;
     position: absolute;
-    right: 0;
+    right: 3px;
     top: 6px;
-
-    @media @sm {
-      top: 20px;
-    }
-
-    @media @md {
-      right: 15px;
-    }
-
-    &:hover { color: @color-orange; }
+    &:focus, &:hover { color: @color-orange; }
   }
 
   .menu {
+    padding-left: 40px;
     display: none;
+    position: absolute;
+    left: 258px;
+    top: 35px;
 
-    @media @sm {
+    &:before, &:after {
+      .before;
       display: block;
-      padding-left: 40px;
+      overflow: hidden;
       position: absolute;
-      left: 258px;
-      top: 35px;
     }
 
-    @media @md {
-      left: 362px;
-    }
-
-    .toggle {
+    &:before {
       width: 14px;
-      height: 10px;
-      display: block;
+      height: 6px;
       border-top: 2px solid @color-white;
       border-bottom: 2px solid @color-white;
-      position: absolute;
       left: 3px;
       top: 3px;
-
-      &:before {
-        .before;
-        height: 2px;
-        background: @color-white;
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 2px;
-      }
+    }
+    &:after {
+      width: 14px;
+      height: 2px;
+      left: 3px;
+      top: 7px;
+      background: @color-white;
     }
 
     ul {
-      margin: 0;
       padding: 0;
+      margin: 0;
       list-style: none;
       font-size: 15px;
+      line-height: 15px;
       font-weight: 500;
+      letter-spacing: -.01em;
 
       li {
         padding: 0 22px;
         display: inline-block;
-
         &:first-child { padding-left: 0; }
         &:last-child { padding-right: 0; }
-
-        @media @md {
-          padding: 0 38px;
-        }
 
         a {
           display: block;
           text-decoration: none;
           color: @color-white;
           text-transform: uppercase;
-
-          &:hover { color: @color-orange; }
+          &:focus, &:hover { color: @color-orange; }
         }
       }
+    }
+  }
+
+  @media @sm {
+    height: 80px;
+    .logo { width: 190px; height: 60px; top: 16px; left: 12px; }
+    .language { top: 20px; }
+    .menu { display: block; }
+  }
+  @media @md {
+    .logo { left: 25px; }
+    .language { right: 15px; }
+    .menu {
+      left: 362px;
+      ul li { padding: 0 38px; }
     }
   }
 }
@@ -470,21 +427,17 @@ textarea {
   border-top: 1px solid #ededed;
   cursor: default;
 
-  @media @sm {
-    height: 45px;
-  }
-
   .copyright {
     margin: 0;
     color: #818181;
     font-size: 9px;
     text-align: center;
     font-weight: 300;
+  }
 
-    @media @sm {
-      font-size: 11px;
-      letter-spacing: .08em;
-    }
+  @media @sm {
+    height: 45px;
+    .copyright { font-size: 11px; letter-spacing: .08em; }
   }
 }
 /* ==========================================================================
@@ -495,13 +448,31 @@ textarea {
   padding-top: 60px;
   padding-bottom: 20px;
   color: @color-white;
-  background: @color-brown url("../img/temp/figure.png") -90px 100% no-repeat;
-  background-size: 256px 232px;
+  position: relative;
+  overflow: hidden;
+  background: @color-brown;
+  cursor: default;
+
+  &:before {
+    width: 456px;
+    height: 450px;
+    margin: -225px 0 0 -653px;
+    content: '';
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    background: url('../img/figure.svg') no-repeat 0 0;
+    background-size: contain;
+  }
 
   @media @sm {
-    padding-top: 80px;
+    padding-top: 76px;
     padding-bottom: 34px;
-    background-position: 0 100%;
+    &:before { margin-left: -653px; }
+  }
+  @media @md {
+    &:before { margin-left: -710px; }
   }
 
   > .wrapper {
@@ -530,6 +501,8 @@ textarea {
 
     .author {
       padding-right: 40px;
+      display: block;
+      font-style: normal;
       text-align: right;
       position: relative;
 
@@ -537,11 +510,11 @@ textarea {
         .before;
         width: 38px;
         height: 29px;
-        background: url("../img/temp/arrow.png") 0 0 no-repeat;
-        background-size: cover;
         position: absolute;
         right: -12px;
         top: -3px;
+        background: url("../img/paper-plane.png") 0 0 no-repeat;
+        background-size: cover;
       }
 
       cite { font-style: normal; }
@@ -552,18 +525,26 @@ textarea {
       font-size: 24px;
       line-height: 28px;
 
-      .slogan { max-width: 410px; margin-bottom: 18px; }
+      .slogan {
+        max-width: 465px;
+        padding-right: 38px;
+        margin-bottom: 19px;
+      }
       .author {
         padding-right: 85px;
         font-size: 22px;
 
-        &:before { width: 62px; height: 48px; right: 12px; top: -28px; }
+        &:before {
+          width: 62px;
+          height: 48px;
+          right: 12px;
+          top: -26px;
+        }
       }
     }
 
     @media @md {
       max-width: 660px;
-
       .slogan { margin-left: auto; margin-right: auto; }
     }
   }
@@ -678,7 +659,7 @@ textarea {
   padding: 26px 0 130px;
   overflow: hidden;
   color: @color-white;
-  background: @color-orange url("../img/temp/bg-1.jpg") 50% 100% no-repeat;
+  background: @color-orange url("../img/landing.jpg") 50% 100% no-repeat;
   background-size: cover;
 
   @media @sm {
@@ -818,7 +799,7 @@ textarea {
     }
   }
 
-  .logo-icon {
+  .figure {
     width: 34px;
     height: 34px;
     margin: 0 auto 8px;
